@@ -57,3 +57,9 @@ Route::middleware('auth')->group(function () {
     Route::post('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
 });
+
+Route::middleware(['web','auth'])
+    ->name('panel.')
+    ->prefix('/panel/')
+    ->group(base_path('routes/panel.php')
+);
