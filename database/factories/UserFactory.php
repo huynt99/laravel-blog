@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Country;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -23,7 +24,22 @@ class UserFactory extends Factory
      */
     public function definition(): array
     {
+        $gender = $this->faker->boolean(); // true for male, false for female
+        $country = Country::query()->firstWhere('en_short_name', 'Vietnam');
+
+        $cityJsonFilePath = public_path() . "/json/city_vn.json";
+        $city = (array) json_decode(file_get_contents($cityJsonFilePath));
+        $cityId = $city[array_rand($city)];
+
         return [
+            'first_name' => ($gender) ? $this->faker->firstNameMale() : $this->faker->firstNameFemale(),
+            'last_name' => $this->faker->name(),
+            'phone' => $this->faker->unique()->phoneNumber(),
+            'birthday' => $this->faker->dateTimeBetween('1990-01-01', '2003-12-31'),
+            'gender' => ($gender) ? 'male' : 'female',
+            'avatar' => 'build/img/avatar1.jpg',
+            'city_id' => $cityId->slug,
+            'country_id' => $country->country_id,
             'name' => fake()->name(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
