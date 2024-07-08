@@ -6,24 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\ProfileRequest;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Config;
 
 
 class UserController extends Controller
 {
-    const PANEL_SETTING = [
-        'paginate' => [
-            'user' => 10,
-            'post' => 10
-        ],
-
-        'image_path' => [
-            'avatar' => 'panel/img/',
-            'post_image' => 'panel/posts/',
-        ],
-
-        'word_length' => 200,
-    ];
-
     public function index(Request $request)
     {
         $user = User::query();
@@ -34,7 +21,7 @@ class UserController extends Controller
                 ->whereLike('username', $request->get('search'))
                 ->whereLike('email', $request->get('search'));
         }
-        $users = $user->paginate(self::PANEL_SETTING['paginate']['user']);
+        $users = $user->paginate(Config::get('panelconfig.paginate.user'));
 
         return view('panel.user.index', compact('users'));
     }

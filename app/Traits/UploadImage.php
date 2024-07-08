@@ -5,6 +5,7 @@ namespace App\Traits;
 use App\Exceptions\ImageNotFoundException;
 use App\Http\Controllers\Panel\UserController;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\File;
 use Illuminate\Http\UploadedFile;
 
@@ -17,7 +18,7 @@ trait UploadImage
 
     private function generateImagePath(string $configKey): string
     {
-        return UserController::PANEL_SETTING['image_path'][$configKey];
+        return Config::get('panelconfig.image_path' . $configKey);
     }
 
     private function imageExists(string $imagePath): bool
