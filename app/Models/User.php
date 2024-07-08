@@ -3,14 +3,17 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use App\Traits\UploadImage;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Http\Request;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Sanctum\HasApiTokens;
 
 class User extends Authenticatable
 {
-    use HasApiTokens, HasFactory, Notifiable;
+    use HasApiTokens, HasFactory, Notifiable, UploadImage;
 
     /**
      * The attributes that are mass assignable.
@@ -54,4 +57,27 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
         'password' => 'hashed',
     ];
+
+    public function getFullNameAttribute()
+    {
+        return ucwords($this->first_name . ' ' . $this->last_name);
+    }
+
+    /**
+     * @param Request $request
+     * @param $id
+     * @return bool|int
+     */
+    public function updateProfile(Request $request, $id)
+    {
+        $user = $this->query()->findOrFail($id);
+        $profileData = array_filter($request->all());
+        if (array_key_exists('password',$profileData))
+            $profileData['password'] = Hash::make($profileData['password']);
+
+        if (array_key_exists('avatar', $profileData))
+            $profileData['avatar'] = $this->updateImage($request->avatar, 'avatar', $user->avatar);
+
+        return $user->update($profileData);
+    }
 }

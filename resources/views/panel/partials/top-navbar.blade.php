@@ -2,7 +2,7 @@
     <a id="navbar_toggle_btn" class="navbar-toggle-btn nav-link-hover" href="javascript:void(0);"><span
             class="feather-icon"><i data-feather="menu"></i></span></a>
     <a class="navbar-brand" href="{{route('panel.home')}}">
-        <img style="height: 64px" class="brand-img d-inline-block" src="img/banner/icon.png" alt="brand"/>
+        <img style="height: 64px" class="brand-img d-inline-block" src="{{URL::asset('/panel/img/banner/icon.png')}}" alt="brand"/>
     </a>
     <ul class="navbar-nav hk-navbar-content">
         <li class="nav-item dropdown dropdown-authentication">
@@ -11,7 +11,7 @@
                 <div class="media">
                     <div class="media-img-wrap">
                         <div class="avatar">
-                            <img src="dist/img/avatar1.jpg" alt="user" class="avatar-img rounded-circle">
+                            <img src="{{URL::asset('/panel/dist/img/avatar1.jpg')}}" alt="user" class="avatar-img rounded-circle">
                         </div>
                         <span class="badge badge-success badge-indicator"></span>
                     </div>

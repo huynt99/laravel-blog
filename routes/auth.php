@@ -58,7 +58,7 @@ Route::middleware('auth')->group(function () {
                 ->name('logout');
 });
 
-Route::middleware(['web','auth'])
+Route::middleware(['auth'])
     ->name('panel.')
     ->prefix('/panel/')
     ->group(base_path('routes/panel.php')
