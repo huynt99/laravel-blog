@@ -41,6 +41,9 @@ return [
     'male' => 'Male',
     'end' => 'End',
     'slug' => 'Slug',
+    'parent' => 'Parent',
+    'selected_parent' => 'Selected parent',
+    'url_key' => 'Url key',
     'content' => 'Content',
     'password' => 'Password',
     'phone' => 'Phone',
@@ -50,5 +53,7 @@ return [
     'first_name' => 'First name',
     'last_name' => 'Last name',
     'full_name' => 'Full name',
+    'create_at' => 'Create at',
+    'update_at' => 'Update at',
     'confirm_password' => 'Confirm Password',
 ];

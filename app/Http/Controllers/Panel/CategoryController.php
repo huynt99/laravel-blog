@@ -32,7 +32,8 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Category::create($request->only('name', 'url_key', 'parent_id'));
+        return redirect()->back()->with('success','Add new category successfully.');
     }
 
     /**
@@ -46,24 +47,30 @@ class CategoryController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit(Category $category)
     {
-        //
+        return view('panel.category.edit', compact('category'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Category $category)
     {
-        //
+        $category->update($request->only('name', 'url_key', 'parent_id'));
+        return redirect()->back()->with('success','Update category successfully.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Category $category)
     {
-        //
+        try {
+            $category->delete();
+            return redirect()->back()->with('success', 'Delete category successfully');
+        } catch (\Illuminate\Database\QueryException $e) {
+            return redirect()->back()->with('error', 'Can not delete this category');
+        }
     }
 }

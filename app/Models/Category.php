@@ -30,4 +30,15 @@ class Category extends Model
     {
         return $this->hasOne(Post::class);
     }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\HigherOrderBuilderProxy|\Illuminate\Support\HigherOrderCollectionProxy|mixed|string
+     */
+    public function getParentNameAttribute()
+    {
+        $parent =  $this->query()->find($this->parent_id);
+        if ($parent)
+            return $parent->name;
+        return 'N/A';
+    }
 }
