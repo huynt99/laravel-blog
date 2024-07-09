@@ -7,9 +7,7 @@ use App\Http\Requests\PostRequest;
 use App\Models\Category;
 use App\Models\Post;
 use App\Traits\UploadImage;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Config;
-use PhpParser\Node\Stmt\If_;
 
 class PostController extends Controller
 {
