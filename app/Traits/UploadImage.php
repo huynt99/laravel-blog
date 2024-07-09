@@ -18,7 +18,7 @@ trait UploadImage
 
     private function generateImagePath(string $configKey): string
     {
-        return Config::get('panelconfig.image_path' . $configKey);
+        return Config::get('panelconfig.image_path.' . $configKey);
     }
 
     private function imageExists(string $imagePath): bool

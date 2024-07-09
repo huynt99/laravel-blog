@@ -18,4 +18,14 @@ Route::group(['prefix' => 'user','as'=>'user.'], function () {
 });
 
 Route::resource('post', PostController::class);
+
+Route::group(['prefix' => 'post', 'as'=>'post.'], function () {
+    Route::get('destroy/{post}', [PostController::class, 'destroy'])->name('destroy');
+});
+
 Route::resource('category', CategoryController::class);
+
+Route::group(['prefix' => 'category', 'as'=>'category.'], function () {
+    Route::get('destroy/{category}', [CategoryController::class, 'destroy'])->name('destroy');
+});
+

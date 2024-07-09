@@ -34,7 +34,7 @@
                                     <a class="nav-link" href="{{route('panel.post.index')}}">Posts</a>
                                 </li>
                                 <li class="nav-item">
-                                    {{--<a class="nav-link" href="{{route('panel.post.create')}}">New Post</a>--}}
+                                    <a class="nav-link" href="{{route('panel.post.create')}}">New Post</a>
                                 </li>
                             </ul>
                         </li>
