@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Country;
+use App\Traits\CityVN;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Str;
@@ -12,6 +13,7 @@ use Illuminate\Support\Str;
  */
 class UserFactory extends Factory
 {
+    use CityVN;
     /**
      * The current password being used by the factory.
      */
@@ -26,10 +28,7 @@ class UserFactory extends Factory
     {
         $gender = $this->faker->boolean(); // true for male, false for female
         $country = Country::query()->firstWhere('en_short_name', 'Vietnam');
-
-        $cityJsonFilePath = public_path() . "/json/city_vn.json";
-        $city = (array) json_decode(file_get_contents($cityJsonFilePath));
-        $cityId = $city[array_rand($city)];
+        $cityId = $this->randomCity();
 
         return [
             'first_name' => ($gender) ? $this->faker->firstNameMale() : $this->faker->firstNameFemale(),

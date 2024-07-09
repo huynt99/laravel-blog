@@ -40,7 +40,6 @@ class UserController extends Controller
     {
         $user->updateProfile($request, $user->id);
         return redirect()->back()->with('success', __("Update profile $user->name successfully"));
-
     }
 
     public function destroy(User $user)

@@ -34,7 +34,7 @@ class ProfileRequest extends FormRequest
             'phone' => ['digits:11', 'regex:/(0|\+84)?([ ]|-|[()]){0,2}9[1|2|3|4]([ ]|-|[()]){0,2}(?:[0-9]([ ]|-|[()]){0,2}){8}/', Rule::unique('users')->ignore($this->user)],
             'gender' => ['nullable','in:female,male'],
             'country_id' => ['nullable','exists:countries,id'],
-            'city_id' => ['nullable','exists:cities,id'],
+            'city_id' => ['nullable'],
             'avatar' => ['mimes:jpeg,png,jpg,gif,svg', 'max:200'],
             'email' => ['string', 'email', 'max:255', Rule::unique('users')->ignore($this->user)],
         ];

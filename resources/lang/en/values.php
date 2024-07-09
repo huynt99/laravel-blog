@@ -36,6 +36,7 @@ return [
     'users' => 'Users',
     'selected_gender' => 'Selected gender',
     'selected_city' => 'Selected City',
+    'selected_country' => 'Selected Country',
     'email' => 'Email',
     'female' => 'Female',
     'male' => 'Male',

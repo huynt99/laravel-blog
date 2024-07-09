@@ -86,7 +86,7 @@
                         </div>
                     </div>
                     <livewire:gender/>
-                    <livewire:city-dropdown/>
+                    <livewire:city/>
 
                     <div class="form-row">
                         <div class="col-md-6 form-group">
@@ -96,8 +96,7 @@
                                 </div>
                                 <input type="text" class="form-control" value="{{old('password')}}" name="password">
                             </div>
-                            @if($errors->has('password'))<span
-                                class="error">{{ $errors->first('password') }}</span>@endif
+                            @if($errors->has('password'))<span class="error">{{ $errors->first('password') }}</span>@endif
                         </div>
                         <div class="col-md-6 form-group">
                             <input type="file" class="form-control-file" name="avatar">
