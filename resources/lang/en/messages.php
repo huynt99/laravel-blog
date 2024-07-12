@@ -10,6 +10,9 @@ return [
             'create' => 'You can create and publish an article.',
         ],
     ],
+    'home_page' => [
+        'title' => 'Home',
+    ],
     'register_page' => [
         'title' => 'Sign up for free',
         'keep_me' => 'Keep me logged in',

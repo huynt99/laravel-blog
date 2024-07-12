@@ -8,8 +8,8 @@
     <meta name="description" content="A responsive bootstrap 4 admin dashboard template by hencework"/>
 
     <!-- Favicon -->
-    <link rel="shortcut icon" href="favicon.ico">
-    <link rel="icon" href="{{asset('build/img/icon.png')}}" type="image/x-icon">
+    <link rel="shortcut icon" href="logo.png">
+    <link rel="icon" href="{{asset('logo.png')}}" type="image/x-icon">
 
     <!-- vector map CSS -->
     <link href="{{asset('panel/vendors/vectormap/jquery-jvectormap-2.0.3.css')}}" rel="stylesheet" type="text/css"/>

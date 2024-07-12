@@ -57,4 +57,6 @@ return [
     'create_at' => 'Create at',
     'update_at' => 'Update at',
     'confirm_password' => 'Confirm Password',
+    'latest_posts' => 'Latest posts',
+    'view_all' => 'View all',
 ];
