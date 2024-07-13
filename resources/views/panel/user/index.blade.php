@@ -72,7 +72,7 @@
     </div>
     <div class="row">
         <div class="col-sm" style="margin-top: 25px">
-            {{ $users->appends($_GET)->links() }}
+            {{ $users->links() }}
         </div>
     </div>
 </section>

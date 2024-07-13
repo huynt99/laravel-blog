@@ -58,6 +58,15 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
+    /**
+     * @var string[]
+     */
+    protected $appends = ['full_name'];
+
+    /**
+     * get full_name
+     * @return string
+     */
     public function getFullNameAttribute()
     {
         return ucwords($this->first_name . ' ' . $this->last_name);

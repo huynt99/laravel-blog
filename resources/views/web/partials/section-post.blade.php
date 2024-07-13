@@ -39,6 +39,7 @@
 
                                             <span class="cl8">
 								<a href="#" class="f1-s-4 cl8 hov-cl10 trans-03">
+                                    {{__('values.by')}} {{$post->witer}}
 								</a>
 
 								<span class="f1-s-3 m-rl-3">
@@ -54,12 +55,13 @@
                                 </div>
                             @endforeach
                         </div>
-                        {{$posts->links()}}
+
+                        <div class="row">
+                            {{$posts->links("pagination::bootstrap-5")}}
+                        </div>
                     </div>
                 </div>
             </div>
-
-
         </div>
     </div>
 </section>
