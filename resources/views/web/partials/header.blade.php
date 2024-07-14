@@ -44,7 +44,7 @@
         <div class="wrap-logo container">
             <!-- Logo -->
             <div class="logo" style="display: flex; justify-content: center; align-items: center;">
-                <a href="#"><img style="height: 120px; width: 120px" src="{{asset('web/images/icons/logo.png')}}" alt="IMG-LOGO"></a>
+                <a href="{{ route('home') }}"><img style="height: 120px; width: 120px" src="{{asset('web/images/icons/logo.png')}}" alt="IMG-LOGO"></a>
             </div>
 
             <!-- Banner -->

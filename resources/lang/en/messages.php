@@ -13,6 +13,10 @@ return [
     'home_page' => [
         'title' => 'Home',
     ],
+    'post_page' => [
+        'title' => 'Post',
+        'comment' => 'Leave a Comment',
+    ],
     'register_page' => [
         'title' => 'Sign up for free',
         'keep_me' => 'Keep me logged in',
