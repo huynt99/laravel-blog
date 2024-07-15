@@ -13,7 +13,6 @@ class MainMenu extends Component
 
     public function mount()
     {
-        $t =$this->menu(self::ROOT_PARENT);
         $this->menu = $this->menu(self::ROOT_PARENT);
     }
 

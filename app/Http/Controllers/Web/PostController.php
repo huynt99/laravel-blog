@@ -21,7 +21,7 @@ class PostController extends Controller
         $post = Post::orderBy('created_at','desc')->first();
         $data = [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::where('parent_id', 0)->get()
         ];
         return view('web.post', compact('data'));
     }
@@ -35,7 +35,7 @@ class PostController extends Controller
     {
         $data = [
             'post' => $post,
-            'categories' => Category::all()
+            'categories' => Category::where('parent_id', 0)->get()
         ];
         return view('web.post', compact('data'));
     }
