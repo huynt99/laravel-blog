@@ -3,7 +3,7 @@ return [
     'paginate' => [
         'user' => 10,
         'post' => 10,
-        'home' => 10,
+        'home' => 9,
         'category' => 10
     ],
 
