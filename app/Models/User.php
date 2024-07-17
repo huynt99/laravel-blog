@@ -89,4 +89,9 @@ class User extends Authenticatable
 
         return $user->update($profileData);
     }
+
+    public function Posts()
+    {
+        return $this->hasMany(Post::class, 'writer', 'id');
+    }
 }
